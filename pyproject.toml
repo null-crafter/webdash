@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "webdash"
+version = "0.1.0"
+description = ""
+authors = ["null crafter <163591881+null-crafter@users.noreply.github.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "==5.1.*"
+redis = "^5.2.0"
+hiredis = "^3.0.0"
+environs = "^11.0.0"
+psycopg2-binary = "^2.9.10"
+orjson = "^3.10.11"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+isort = "^5.13.2"
+django-stubs = "==5.1.*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
