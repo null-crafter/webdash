@@ -6,18 +6,14 @@ services:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - DB_HOST=db
-      - DB_USERNAME=postgres
+      - DB_USER=postgres
       - DB_PASSWORD=postgres
       - DB_NAME=postgres
     volumes:
       - .:/app
-  web_install:
+  web_prepare:
     extends: web
-    command: poetry install
-
-  web_migrate:
-    extends: web
-    command: poetry run python manage.py migrate
+    command: sh -c "poetry run python manage.py migrate && poetry run python manage.py collectstatic"
 
   web_run:
     extends: web
